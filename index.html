@@ -146,7 +146,7 @@
 				xhrGithubProjects.open("GET", "https://api.github.com/orgs/TCDG/repos", false);
 				xhrGithubProjects.send();
 				objGithubProjects = JSON.parse(xhrGithubProjects.responseText);
-				document.getElementById("github_projects").innerHTML = objGithubProjects.name;
+				document.getElementById("github_projects").innerHTML = objGithubProjects.length;
 				
 				var xhrDiscordUsers = new XMLHttpRequest();
 				xhrDiscordUsers.open("GET", "https://discordapp.com/api/guilds/207195417387991041/widget.json", false);
@@ -158,7 +158,7 @@
 				xhrGitHubMembers.open("GET", "https://api.github.com/orgs/TCDG/members", false);
 				xhrGitHubMembers.send();
 				objGithubUsers = JSON.parse(xhrGitHubMembers.responseText);
-				document.getElementById("github_members").innerHTML = objGithubUsers.array.login;
+				document.getElementById("github_members").innerHTML = objGithubUsers.length;
 			</script>
 
             <h6 class="title is-6">
