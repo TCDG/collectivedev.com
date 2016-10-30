@@ -110,7 +110,7 @@
                     <h4 class="subtitle is-4">
                         GitHub organization with
                     </h4>
-                    <h1 class="title is-1">
+                    <h1 id="github_projects" class="title is-1">
                         30
                     </h1>
                     <h4 class="subtitle is-4">
@@ -121,7 +121,7 @@
                     <h4 class="subtitle is-4">
                         Discord server with
                     </h4>
-                    <h1 class="title is-1">
+                    <h1 id="discord_members" class="title is-1">
                         48
                     </h1>
                     <h4 class="subtitle is-4">
@@ -132,14 +132,34 @@
                     <h4 class="subtitle is-4">
                         Group with
                     </h4>
-                    <h1 class="title is-1">
+                    <h1 id="github_members" class="title is-1">
                         24
                     </h1>
                     <h4 class="subtitle is-4">
-                        members
+                        public members
                     </h4>
                 </div>
             </div>
+            
+            <script>
+				var xhrGithubProjects = new XMLHttpRequest();
+				xhrGithubProjects.open("GET", "https://api.github.com/orgs/TCDG/repos", false);
+				xhrGithubProjects.send();
+				objGithubProjects = JSON.parse(xhrGithubProjects.responseText);
+				document.getElementById("github_projects").innerHTML = objGithubProjects.length;
+				
+				var xhrDiscordUsers = new XMLHttpRequest();
+				xhrDiscordUsers.open("GET", "https://discordapp.com/api/guilds/207195417387991041/widget.json", false);
+				xhrDiscordUsers.send();
+				objDiscordUsers = JSON.parse(xhrDiscordUsers.responseText);
+				document.getElementById("discord_members").innerHTML = objDiscordUsers.members.length;
+			
+				var xhrGitHubMembers = new XMLHttpRequest();
+				xhrGitHubMembers.open("GET", "https://api.github.com/orgs/TCDG/members", false);
+				xhrGitHubMembers.send();
+				objGithubUsers = JSON.parse(xhrGitHubMembers.responseText);
+				document.getElementById("github_members").innerHTML = objGithubUsers.length;
+			</script>
 
             <h6 class="title is-6">
                 (and counting)
@@ -263,7 +283,7 @@
                                     <p>
                                         <strong>XeliteXirish</strong> <small>@XeliteXirish#4468</small>
                                         <br>
-                                        There would be a quote here, but I haven't made one up yet so inventor02 had to fill it with placeholder text.
+                                        I absolutly love this community, having a bunch of friends who are able talk about development problems in a mature enviroment means so much to me.  Every developer should consider joining.
                                     </p>
                                 </div>
                                 <nav class="level">
