@@ -170,7 +170,11 @@
 	xhrGitHubMembers.send();
 	objGithubUsers = JSON.parse(xhrGitHubMembers.responseText);
 	for(x = 0; x < objGithubUsers.length; x++) {
-  
+		var xhrGitHubUser = new XMLHttpRequest();
+		xhrGitHubUser.open("GET", objGithubUsers[x].url, false);
+		xhrGitHubUser.send();
+		objGithubMember = JSON.parse(xhrGitHubUser.responseText);
+		
 		var membersParent = document.getElementById("members_parent");
 		var membersNode = document.createElement("Article");
 		membersNode.setAttribute("class", "media")
@@ -195,9 +199,9 @@
 				var userData = document.createElement("P");
 					
 					var userDataText = "<strong>" + objGithubUsers[x].login + "</strong>";
-					userDataText += "<small>Email will go here</small";
+					userDataText += "<small>" + objGithubMember[x].email + "</small";
 					userDataText += "<br><br><br>";
-					userDataText += "<b>Repositorys:" + objGithubUsers.length + "</b>";
+					userDataText += "<b>Repositorys:" + 5 + "</b>";
 					
 					userData.innerHTML = userDataText;
 				content.appendChild(userData);
