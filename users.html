@@ -107,8 +107,17 @@
             </div>
             <br>
             
-            <div id="tcdg_leaders" class="box">
+            <div class="columns">
+                <div class="column">
+            		<div id="tcdg_leaders_one" class="box">
           
+          			</div>
+          		</div>
+                <div class="column">
+            		<div id="tcdg_leaders_two" class="box">
+          
+          			</div>
+          		</div>
 			</div>
       	</div>
   	</section>
@@ -124,19 +133,18 @@
                 </h2>
             </div>
             <br>
-            
             <div class="columns">
-      	<div class="column">
-          	<div id="members_parent_one" class="box">
-          
-        	</div>
-        </div>
-        <div class="column">
-          	<div id="members_parent_two" class="box">
-          
-        	</div>
-        </div>
-    </div>
+                <div class="column">
+                    <div id="members_parent_one" class="box">
+                  
+                    </div>
+                </div>
+                <div class="column">
+                    <div id="members_parent_two" class="box">
+                  
+                    </div>
+        		</div>
+    		</div>
       </div>
       
   </section>
@@ -154,7 +162,8 @@
   }
   
   function listUsersWithData() {
-	var tcdgLeadersParent = document.getElementById("tcdg_leaders");
+	var tcdgLeadersParentOne = document.getElementById("tcdg_leaders_one");
+	var tcdgLeadersParentTwo = document.getElementById("tcdg_leaders_two");
 	var membersParentOne = document.getElementById("members_parent_one");
 	var membersParentTwo = document.getElementById("members_parent_two");
 	  
@@ -227,7 +236,12 @@
 			membersParentTwo.appendChild(membersNode);
 		}
 		if(getTcdgLeaders().indexOf(username) > -1){
-			tcdgLeadersParent.appendChild(membersNode);
+			var leadersBoxLength = tcdgLeadersParentOne.childNodes.length;
+			if(leadersBoxLength <= getTcdgLeaders().length /2 ){
+				tcdgLeadersParentOne.appendChild(membersNode);
+			}else{
+				tcdgLeadersParentTwo.appendChild(membersNode);
+			}
 		}
 	}
   }
