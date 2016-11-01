@@ -199,15 +199,20 @@
 			content.setAttribute("class", "content");
 				var userData = document.createElement("P");
 					
-					var userDataText = "<strong>" + objGithubUsers[x].login + "</strong>"
-					userDataText += "  <small> Email:  " + objGithubMember.email + "</small>";
+					var userDataText = "<strong>" + objGithubUsers[x].login + "</strong>";
+					if(objGithubMember.name != null) userDataText += " (" + objGithubMember.name + ")"
+					if(objGithubMember.email != null) userDataText += "  <small><b> Email:</b>  " + objGithubMember.email + "</small>";
+					userDataText += "<br>";
+					if(objGithubMember.blog != null) userDataText += " <small> Website:  " + objGithubMember.blog + "</small>";
 					userDataText += "<br><br>";
-					userDataText += "<b>Repository Count: " + objGithubMember.public_repos + "</b>";
+					userDataText += "<i><b>Public Repositorys: " + "</b>" + objGithubMember.public_repos + "</i>";
 					
 					userData.innerHTML = userDataText;
 				content.appendChild(userData);
 			mediaContent.appendChild(content);
 		membersNode.appendChild(mediaContent);
+		
+		membersNode.setAttribute("href", objGithubUsers[x].html_url);
 			
 		membersParent.appendChild(membersNode);
 	}
