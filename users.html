@@ -194,10 +194,10 @@
 			content.setAttribute("class", "content");
 				var userData = document.createElement("P");
 					
-					var userDataText = "<strong>" + objGithubUsers[x].login + "</strong>"
-					userDataText += "<small>Email</small";
-					userDataText += "<br><br>";
-					userDataText += "<b>Repositorys:</b>";
+					var userDataText = "<strong>" + objGithubUsers[x].login + "</strong>";
+					userDataText += "<small>Email will go here</small";
+					userDataText += "<br><br><br>";
+					userDataText += "<b>Repositorys:" + objGithubUsers.length + "</b>";
 					
 					userData.innerHTML = userDataText;
 				content.appendChild(userData);
