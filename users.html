@@ -166,10 +166,15 @@
   
   <script>
   	var xhrGitHubMembers = new XMLHttpRequest();
-	xhrGitHubMembers.open("GET", "https://api.github.com/orgs/TCDG/members", false);
+	xhrGitHubMembers.open("GET", "https://api.github.com/orgs/TCDG/members?client_id=8d9911a2ac534ff77bee&client_secret=2fa25b1f6f191bb193c15ae4cf837e4886da661a", false);
 	xhrGitHubMembers.send();
 	objGithubUsers = JSON.parse(xhrGitHubMembers.responseText);
 	for(x = 0; x < objGithubUsers.length; x++) {
+		var xhrGithubUser = new XMLHttpRequest();
+		xhrGithubUser.open("GET", objGithubUsers[x].url + "?client_id=8d9911a2ac534ff77bee&client_secret=2fa25b1f6f191bb193c15ae4cf837e4886da661a", false);
+		xhrGithubUser.send();
+		objGithubMember = JSON.parse(xhrGithubUser.responseText);
+	
   
 		var membersParent = document.getElementById("members_parent");
 		var membersNode = document.createElement("Article");
@@ -195,9 +200,9 @@
 				var userData = document.createElement("P");
 					
 					var userDataText = "<strong>" + objGithubUsers[x].login + "</strong>"
-					userDataText += "<small>Email</small";
+					userDataText += "  <small> Email:  " + objGithubMember.email + "</small>";
 					userDataText += "<br><br>";
-					userDataText += "<b>Repositorys:</b>";
+					userDataText += "<b>Repository Count: " + objGithubMember.public_repos + "</b>";
 					
 					userData.innerHTML = userDataText;
 				content.appendChild(userData);
