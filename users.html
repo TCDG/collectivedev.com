@@ -165,57 +165,75 @@
   </section>
   
   <script>
+  
+  function getTcdgLeaders() {
+	return {
+		var xeltiexirish = "XeliteXirish";
+		var GG142 = "GG142";
+		var Newtstock = "Newtsrock";
+		var Kelwing = "Kelwing";
+		var JoeTheHuman = "JoeTheHuman";
+		var floogulinc = "floogulinc";
+		
+		return [xelitexirish, GG142, Newtsrock, Kelwing, JoeTheHuman, floogulinc]
+	};
+  }
+ 
   	var xhrGitHubMembers = new XMLHttpRequest();
 	xhrGitHubMembers.open("GET", "https://api.github.com/orgs/TCDG/members?client_id=8d9911a2ac534ff77bee&client_secret=2fa25b1f6f191bb193c15ae4cf837e4886da661a", false);
 	xhrGitHubMembers.send();
 	objGithubUsers = JSON.parse(xhrGitHubMembers.responseText);
 	for(x = 0; x < objGithubUsers.length; x++) {
-		var xhrGithubUser = new XMLHttpRequest();
-		xhrGithubUser.open("GET", objGithubUsers[x].url + "?client_id=8d9911a2ac534ff77bee&client_secret=2fa25b1f6f191bb193c15ae4cf837e4886da661a", false);
-		xhrGithubUser.send();
-		objGithubMember = JSON.parse(xhrGithubUser.responseText);
-	
-  
-		var membersParent = document.getElementById("members_parent");
-		var membersNode = document.createElement("Article");
-		membersNode.setAttribute("class", "media")
-		membersNode.href = objGithubUsers[x].html_url;
+		if (getTcdgLeaders().indexOf(objGithubUsers[x].login) != -1) {
+			var xhrGithubUser = new XMLHttpRequest();
+			xhrGithubUser.open("GET", objGithubUsers[x].url + "?client_id=8d9911a2ac534ff77bee&client_secret=2fa25b1f6f191bb193c15ae4cf837e4886da661a", false);
+			xhrGithubUser.send();
+			objGithubMember = JSON.parse(xhrGithubUser.responseText);
 		
-		var profilePic = document.createElement("Div");
-		profilePic.setAttribute("class", "media-left")
-			var figureProfile = document.createElement("Figure");
-			figureProfile.setAttribute("class", "image is-64x64");
-				var imgProfile = document.createElement("Img");
-				imgProfile.setAttribute("src", objGithubUsers[x].avatar_url);
-				imgProfile.setAttribute("alt", "Image"); 
-				
-				
-				figureProfile.appendChild(imgProfile);
-			profilePic.appendChild(figureProfile);
-		membersNode.appendChild(profilePic);
+	  
+			var membersParent = document.getElementById("members_parent");
+			var membersNode = document.createElement("Article");
+			membersNode.setAttribute("class", "media")
+			membersNode.href = objGithubUsers[x].html_url;
 			
-		var mediaContent = document.createElement("Div");
-		mediaContent.setAttribute("class", "media-content");
-			var content = document.createElement("Div");
-			content.setAttribute("class", "content");
-				var userData = document.createElement("P");
+			var profilePic = document.createElement("Div");
+			profilePic.setAttribute("class", "media-left")
+				var figureProfile = document.createElement("Figure");
+				figureProfile.setAttribute("class", "image is-64x64");
+					var imgProfile = document.createElement("Img");
+					imgProfile.setAttribute("src", objGithubUsers[x].avatar_url);
+					imgProfile.setAttribute("alt", "Image"); 
 					
-					var userDataText = "<strong>" + objGithubUsers[x].login + "</strong>";
-					if(objGithubMember.name != null) userDataText += " (" + objGithubMember.name + ")"
-					userDataText += "<br>";
-					if(objGithubMember.email != null) userDataText += "  <small><b> Email:</b>  " + objGithubMember.email + "</small>";
-					userDataText += "<br>";
-					if(objGithubMember.blog != null) userDataText += " <small><b> Website:</b>  " + objGithubMember.blog + "</small>";
-					userDataText += "<br><br>";
-					userDataText += "<i><b>Public Repositorys: " + "</b>" + objGithubMember.public_repos + "</i>";
 					
-					userData.innerHTML = userDataText;
-				content.appendChild(userData);
-			mediaContent.appendChild(content);
-		membersNode.appendChild(mediaContent);
+					figureProfile.appendChild(imgProfile);
+				profilePic.appendChild(figureProfile);
+			membersNode.appendChild(profilePic);
+				
+			var mediaContent = document.createElement("Div");
+			mediaContent.setAttribute("class", "media-content");
+				var content = document.createElement("Div");
+				content.setAttribute("class", "content");
+					var userData = document.createElement("P");
 						
-		membersParent.appendChild(membersNode);
-	}
+						var userDataText = "<strong>" + objGithubUsers[x].login + "</strong>";
+						if(objGithubMember.name != null) userDataText += " (" + objGithubMember.name + ")"
+						userDataText += "<br>";
+						if(objGithubMember.email != null) userDataText += "  <small><b> Email:</b>  " + objGithubMember.email + "</small>";
+						userDataText += "<br>";
+						if(objGithubMember.blog != null) userDataText += " <small><b> Website:</b>  " + objGithubMember.blog + "</small>";
+						userDataText += "<br><br>";
+						userDataText += "<i><b>Public Repositorys: " + "</b>" + objGithubMember.public_repos + "</i>";
+						
+						userData.innerHTML = userDataText;
+					content.appendChild(userData);
+				mediaContent.appendChild(content);
+			membersNode.appendChild(mediaContent);
+							
+			membersParent.appendChild(membersNode);
+		}
+  }
+  
+  
   </script>
 
 </body>
