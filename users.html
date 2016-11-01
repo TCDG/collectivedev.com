@@ -165,6 +165,7 @@
   </section>
   
   <script>
+  function listUsersWithData() {
   	var xhrGitHubMembers = new XMLHttpRequest();
 	xhrGitHubMembers.open("GET", "https://api.github.com/orgs/TCDG/members?client_id=8d9911a2ac534ff77bee&client_secret=2fa25b1f6f191bb193c15ae4cf837e4886da661a", false);
 	xhrGitHubMembers.send();
@@ -216,6 +217,8 @@
 						
 		membersParent.appendChild(membersNode);
 	}
+  }
+  listUsersWithData();
   </script>
 
 </body>
