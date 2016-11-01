@@ -81,7 +81,7 @@
         <div class="container has-text-centered">
             <div class="header">
                 <h1 class="title">
-                    Our Members
+                    <strong>Our Members</strong>
                 </h1>
                 <h2 class="subtitle">
                     Each and every single one of the TCDG members are amazing and unique developers!</h2>
@@ -99,49 +99,33 @@
         <div class="container has-text-centered">
             <div class="header">
                 <h1 class="title">
-                    TCDG Leaders
+                    <strong>TCDG Leaders</strong>
                 </h1>
                 <h2 class="subtitle">
                     These are the TCDG Leaders, the people who keep everything running and make sure everyone has a nice and friendly time!
                 </h2>
             </div>
             <br>
-      </div>
-      
-      <div class="box">
-  <article class="media">
-    <div class="media-left">
-      <figure class="image is-64x64">
-        <img src="http://placehold.it/128x128" alt="Image">
-      </figure>
-    </div>
-    <div class="media-content">
-      <div class="content">
-        <p>
-          <strong>XeliteXirish</strong> <small>xelitexirish@collectivedev.com</small> <small>31m</small>
-          <br>
-          Something like this except its dynamic. Lists some of my basic info and how many repositorys i have.
-        </p>
-      </div>
-    </div>
-  </article>
-</div>
-  </section>
+            
+            <div id="tcdg_leaders" class="box">
+          
+			</div>
+      	</div>
+  	</section>
 
 <section class="section">
         <div class="container has-text-centered">
             <div class="header">
                 <h1 class="title">
-                    TCDG Members
+                    <strong>TCDG Members</strong>
                 </h1>
                 <h2 class="subtitle">
                     These are the TCDG members! The users who develop every awesome project we host!
                 </h2>
             </div>
             <br>
-      </div>
-      
-      <div class="columns">
+            
+            <div class="columns">
       	<div class="column">
           	<div id="members_parent_one" class="box">
           
@@ -153,10 +137,24 @@
         	</div>
         </div>
     </div>
+      </div>
+      
   </section>
   
   <script>
+  function getTcdgLeaders() {
+	  var leadersArray = new Array();
+	  leadersArray[0] = "XeliteXirish";
+	  leadersArray[1] = "GilbertGobbels";
+	  leadersArray[2] = "Kelwing";
+	  leadersArray[3] = "floogulinc";
+	  leadersArray[4] = "Newtsrock";
+	  leadersArray[5] = "JoeTheHuman";
+	  return leadersArray;
+  }
+  
   function listUsersWithData() {
+	var tcdgLeadersParent = document.getElementById("tcdg_leaders");
 	var membersParentOne = document.getElementById("members_parent_one");
 	var membersParentTwo = document.getElementById("members_parent_two");
 	  
@@ -222,10 +220,14 @@
 			mediaContent.appendChild(content);
 		membersNode.appendChild(mediaContent);
 		
+		
 		if(x < (objGithubUsers.length / 2)){
 			membersParentOne.appendChild(membersNode);
 		}else{
 			membersParentTwo.appendChild(membersNode);
+		}
+		if(getTcdgLeaders().indexOf(username) > -1){
+			tcdgLeadersParent.appendChild(membersNode);
 		}
 	}
   }
