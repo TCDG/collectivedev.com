@@ -141,14 +141,25 @@
             <br>
       </div>
       
-      <div id="members_parent" class="box">
-      
+      <div class="columns">
+      	<div class="column">
+          	<div id="members_parent_one" class="box">
           
-	</div>
+        	</div>
+        </div>
+        <div class="column">
+          	<div id="members_parent_two" class="box">
+          
+        	</div>
+        </div>
+    </div>
   </section>
   
   <script>
   function listUsersWithData() {
+	var membersParentOne = document.getElementById("members_parent_one");
+	var membersParentTwo = document.getElementById("members_parent_two");
+	  
   	var xhrGitHubMembers = new XMLHttpRequest();
 	xhrGitHubMembers.open("GET", "https://api.github.com/orgs/TCDG/members?client_id=8d9911a2ac534ff77bee&client_secret=2fa25b1f6f191bb193c15ae4cf837e4886da661a", false);
 	xhrGitHubMembers.send();
@@ -159,8 +170,6 @@
 		xhrGithubUser.send();
 		objGithubMember = JSON.parse(xhrGithubUser.responseText);
 	
-  
-		var membersParent = document.getElementById("members_parent");
 		var membersNode = document.createElement("Article");
 		membersNode.setAttribute("class", "media")
 		membersNode.href = objGithubUsers[x].html_url;
@@ -212,7 +221,7 @@
 			mediaContent.appendChild(content);
 		membersNode.appendChild(mediaContent);
 						
-		membersParent.appendChild(membersNode);
+		membersParentOne.appendChild(membersNode);
 	}
   }
   listUsersWithData();
