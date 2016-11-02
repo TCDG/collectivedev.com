@@ -61,10 +61,13 @@
                         <a class="nav-item is-active" href="/">
                             Home
                         </a>
-                        <a class="nav-item is-active" href="https://forums.collectivedev.com">
+                        <a class="nav-item" href="/users">
+                            Members
+                        </a>
+                        <a class="nav-item" href="https://forums.collectivedev.com">
                             Forums
                         </a>
-                        <a class="nav-item is-active" href="https://git.collectivedev.com">
+                        <a class="nav-item" href="https://git.collectivedev.com">
                             GitLabs
                         </a>
 			<a class="nav-item is-active" href="https://datara.in/tcdgstatus">
@@ -91,7 +94,7 @@
         <div class="container has-text-centered">
             <div class="header">
                 <h1 class="title">
-                    About Us
+                    <strong>About Us</strong>
                 </h1>
                 <h2 class="subtitle">
                     What we do, how we do it, and why we enjoy doing it.
@@ -110,7 +113,7 @@
         <div class="container has-text-centered">
             <div class="header">
                 <h1 class="title">
-                    Projects
+                    <strong>Projects</strong>
                 </h1>
                 <h2 class="subtitle">
                     Some of our open-source projects, and what they are.
@@ -157,19 +160,19 @@
             
             <script>
 				var xhrGithubProjects = new XMLHttpRequest();
-				xhrGithubProjects.open("GET", "https://api.github.com/orgs/TCDG/repos", false);
+				xhrGithubProjects.open("GET", "https://api.github.com/orgs/TCDG/repos" + "?client_id=8d9911a2ac534ff77bee&client_secret=2fa25b1f6f191bb193c15ae4cf837e4886da661a", false);
 				xhrGithubProjects.send();
 				objGithubProjects = JSON.parse(xhrGithubProjects.responseText);
 				document.getElementById("github_projects").innerHTML = objGithubProjects.length;
 				
 				var xhrDiscordUsers = new XMLHttpRequest();
-				xhrDiscordUsers.open("GET", "https://discordapp.com/api/guilds/207195417387991041/widget.json", false);
+				xhrDiscordUsers.open("GET", "https://discordapp.com/api/guilds/207195417387991041/widget.json" + "?client_id=8d9911a2ac534ff77bee&client_secret=2fa25b1f6f191bb193c15ae4cf837e4886da661a", false);
 				xhrDiscordUsers.send();
 				objDiscordUsers = JSON.parse(xhrDiscordUsers.responseText);
 				document.getElementById("discord_members").innerHTML = objDiscordUsers.members.length;
 			
 				var xhrGitHubMembers = new XMLHttpRequest();
-				xhrGitHubMembers.open("GET", "https://api.github.com/orgs/TCDG/members", false);
+				xhrGitHubMembers.open("GET", "https://api.github.com/orgs/TCDG/members" + "?client_id=8d9911a2ac534ff77bee&client_secret=2fa25b1f6f191bb193c15ae4cf837e4886da661a", false);
 				xhrGitHubMembers.send();
 				objGithubUsers = JSON.parse(xhrGitHubMembers.responseText);
 				document.getElementById("github_members").innerHTML = objGithubUsers.length;
@@ -274,7 +277,7 @@
         <div class="container has-text-centered">
             <div class="header">
                 <h1 class="title">
-                    Leadership
+                    <strong>Leadership</strong>
                 </h1>
                 <h2 class="subtitle">
                     The Collective's leaders, making sure that everything runs smoothly and everyone is having a good time!</h2>
@@ -462,7 +465,7 @@
         <div class="container">
             <div class="content has-text-centered">
                 <p>
-                    <strong>CollectiveDev.com</strong> by <a href="http://inventor02.me">inventor02</a>. Source code licensed under a BSD-style license, available <a href="https://github.com/tcdg/collectivedev.com">in the repository</a>. Copyright &copy; The Collective Developer Group, 2016. All rights reserved.
+                    <strong>CollectiveDev.com</strong> by <a href="http://inventor02.me">inventor02</a> and <a href="https://www.xelitexirish.com">XeliteXirish</a>. Source code licensed under a BSD-style license, available <a href="https://github.com/tcdg/collectivedev.com">in the repository</a>. Copyright &copy; The Collective Developer Group, 2016. All rights reserved.
                 </p>
             </div>
         </div>
