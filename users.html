@@ -218,7 +218,7 @@
 					userDataText += "<br>";
 					
 					userDataText += " <small><b> Website:</b>  ";
-					if(objGithubMember.blog != null) userDataText += website + "</small>";
+					if(objGithubMember.blog != null) userDataText +="<a href=" + website + ">" + website + "</a>" + "</small>";
 					else userDataText += "Not publicly shown</small>";
 					
 					userDataText += "<br><br>";
