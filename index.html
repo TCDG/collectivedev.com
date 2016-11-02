@@ -157,19 +157,19 @@
             
             <script>
 				var xhrGithubProjects = new XMLHttpRequest();
-				xhrGithubProjects.open("GET", "https://api.github.com/orgs/TCDG/repos", false);
+				xhrGithubProjects.open("GET", "https://api.github.com/orgs/TCDG/repos" + "?client_id=8d9911a2ac534ff77bee&client_secret=2fa25b1f6f191bb193c15ae4cf837e4886da661a", false);
 				xhrGithubProjects.send();
 				objGithubProjects = JSON.parse(xhrGithubProjects.responseText);
 				document.getElementById("github_projects").innerHTML = objGithubProjects.length;
 				
 				var xhrDiscordUsers = new XMLHttpRequest();
-				xhrDiscordUsers.open("GET", "https://discordapp.com/api/guilds/207195417387991041/widget.json", false);
+				xhrDiscordUsers.open("GET", "https://discordapp.com/api/guilds/207195417387991041/widget.json" + "?client_id=8d9911a2ac534ff77bee&client_secret=2fa25b1f6f191bb193c15ae4cf837e4886da661a", false);
 				xhrDiscordUsers.send();
 				objDiscordUsers = JSON.parse(xhrDiscordUsers.responseText);
 				document.getElementById("discord_members").innerHTML = objDiscordUsers.members.length;
 			
 				var xhrGitHubMembers = new XMLHttpRequest();
-				xhrGitHubMembers.open("GET", "https://api.github.com/orgs/TCDG/members", false);
+				xhrGitHubMembers.open("GET", "https://api.github.com/orgs/TCDG/members" + "?client_id=8d9911a2ac534ff77bee&client_secret=2fa25b1f6f191bb193c15ae4cf837e4886da661a", false);
 				xhrGitHubMembers.send();
 				objGithubUsers = JSON.parse(xhrGitHubMembers.responseText);
 				document.getElementById("github_members").innerHTML = objGithubUsers.length;
