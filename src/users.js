@@ -13,7 +13,7 @@
 
     const getGithubMembers = (cb) => runGetRequest(`//devjoe.me/TCDG/members.php`, (res) => cb(JSON.parse(res)));
 
-    const leaders = ["XeliteXirish", "GilbertGobbels", "Kelwing", "flooglinc", "Newtsrock", "JoeTheHuman"]; // Get this from the API later on!
+    const leaders = ["XeliteXirish", "GilbertGobbels", "Kelwing", "floogulinc", "Newtsrock", "JoeTheHuman"]; // Get this from the API later on!
 
     const { htmlesc, htmlunesc } = (() => {
         let escape = document.createElement('textarea');
