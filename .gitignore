@@ -54,5 +54,6 @@ $RECYCLE.BIN/
 !.vscode/launch.json
 
 .swp
-build/*
-build
+node-modules
+node_modules/
+node_modules
