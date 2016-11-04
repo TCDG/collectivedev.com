@@ -7,7 +7,7 @@
             if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
                 cb(xmlHttp.responseText);
         }
-        xmlHttp.open("GET", url, true); // true for asynchronous 
+        xmlHttp.open("GET", url, true); // true for asynchronous
         xmlHttp.send(null);
     }
 
@@ -61,6 +61,17 @@
         </article>
     `;
 
+    function hideLoaders() {
+        const loaders = {
+            "tcdg_leaders_one": "loader1",
+            "tcdg_leaders_two": "loader2",
+            "members_parent_one": "loader3",
+            "members_parent_two": "loader4"
+        };
+        for(let id in loaders)
+            document.getElementById(id).removeChild(document.getElementById(loaders[id]));
+    }
+
     function listUsersWithData() {
         let tcdgLeadersParentOne = document.getElementById("tcdg_leaders_one");
         let tcdgLeadersParentTwo = document.getElementById("tcdg_leaders_two");
@@ -68,19 +79,24 @@
         let membersParentTwo = document.getElementById("members_parent_two");
 
         const members = getGithubMembers((objGithubUsers) => {
-            console.log(objGithubUsers);
-            for (let userIndex in objGithubUsers) {
-                const user = objGithubUsers[userIndex];
+          let leadersList = 1;
+            hideLoaders();
+            setTimeout(function () {
+                for (let userIndex in objGithubUsers) {
+                    const user = objGithubUsers[userIndex];
 
-                const membersParent = document.createElement('div');
-                membersParent.innerHTML = compileMemberHTML(user);
-                const membersNode = membersParent.firstElementChild;
+                    const membersParent = document.createElement('div');
+                    membersParent.innerHTML = compileMemberHTML(user);
+                    const membersNode = membersParent.firstElementChild;
 
-                ((userIndex < (objGithubUsers.length / 2)) ? membersParentOne : membersParentTwo).appendChild(membersNode)
+                    ((userIndex < (objGithubUsers.length / 2)) ? membersParentOne : membersParentTwo).appendChild(membersNode)
 
-                if (leaders.indexOf(user.login) > -1)
-                    ((tcdgLeadersParentOne.childNodes.length <= leaders.length / 2) ? tcdgLeadersParentOne : tcdgLeadersParentTwo).appendChild(membersNode);
-            }
+                    if (leaders.indexOf(user.login) > -1){
+                        ((leadersList <= leaders.length / 2) ? tcdgLeadersParentOne : tcdgLeadersParentTwo).appendChild(membersNode);
+                        leadersList++;
+                    }
+                }
+            }, 100);
         });
     }
     listUsersWithData();
