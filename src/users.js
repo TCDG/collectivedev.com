@@ -74,18 +74,18 @@
           document.getElementById("members_parent_one").innerHTML = "";
           document.getElementById("members_parent_two").innerHTML = "";
             console.log(objGithubUsers);
-            for (let userIndex in objGithubUsers) {
-                const user = objGithubUsers[userIndex];
+              for (let userIndex in objGithubUsers) {
+                  const user = objGithubUsers[userIndex];
 
-                const membersParent = document.createElement('div');
-                membersParent.innerHTML = compileMemberHTML(user);
-                const membersNode = membersParent.firstElementChild;
+                  const membersParent = document.createElement('div');
+                  membersParent.innerHTML = compileMemberHTML(user);
+                  const membersNode = membersParent.firstElementChild;
 
-                ((userIndex < (objGithubUsers.length / 2)) ? membersParentOne : membersParentTwo).appendChild(membersNode)
+                  ((userIndex < (objGithubUsers.length / 2)) ? membersParentOne : membersParentTwo).appendChild(membersNode)
 
-                if (leaders.indexOf(user.login) > -1)
-                    ((tcdgLeadersParentOne.childNodes.length <= leaders.length / 2) ? tcdgLeadersParentOne : tcdgLeadersParentTwo).appendChild(membersNode);
-            }
+                  if (leaders.indexOf(user.login) > -1)
+                      ((tcdgLeadersParentOne.childNodes.length <= leaders.length / 2) ? tcdgLeadersParentOne : tcdgLeadersParentTwo).appendChild(membersNode);
+              }
         });
     }
     listUsersWithData();
