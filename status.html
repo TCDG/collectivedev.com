@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Members &bull; The Collective</title>
+	<title>Status &bull; The Collective</title>
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -62,7 +62,7 @@
 						<a class="nav-item" href="/">
                             Home
                         </a>
-						<a class="nav-item is-active" href="/users">
+						<a class="nav-item" href="/users">
                             Members
                             </a>
 						<a class="nav-item" href="https://forums.collectivedev.com">
@@ -71,7 +71,7 @@
 						<a class="nav-item" href="https://git.collectivedev.com">
                             GitLabs
                         </a>
-						<a class="nav-item" href="https://datara.in/tcdgstatus">
+						<a class="nav-item is-active" href="https://datara.in/tcdgstatus">
                             Server Status
                         </a>
 					</div>
@@ -79,95 +79,111 @@
 			</nav>
 		</div>
 	</section>
-
-	<section class="section">
+    
+    <section class="section">
 		<div class="container has-text-centered">
 			<div class="header">
 				<h1 class="title">
-					<strong>Our Members</strong>
-				</h1>
-				<h2 class="subtitle">
-					Each and every single one of the TCDG members are amazing and unique developers!</h2>
-			</div>
+				<strong>TCDG Server Status's</strong> </h1>
+				<h2 class="subtitle">Tried to reach one of our servers and it was down? Find out what happened!</h2>
+		  </div>
 
 			<br>
 
 			<p>
-				In order for someone to join TCDG they must complete an application forum that is available on our forums. They must provide
-				proof of development, this usually means them just showing us their GitHub or some private projects. This is to ensure
-				that the user meets the development standards that are required. We have a zero tolerance policy for drama in our discord
-				server, if a member is seen to cause drama, they're kicked out.</p>
+				We run a lot of different servers and sometimes something happens which causes everything to break. This page displays the status of all of our servers and applications.</p>
 		</div>
 	</section>
-
-	<section class="section">
+    
+    <section class="section">
 		<div class="container has-text-centered">
 			<div class="header">
 				<h1 class="title">
-					<strong>TCDG Leaders</strong>
+					<strong>Server Status's</strong>
 				</h1>
 				<h2 class="subtitle">
-					These are the TCDG Leaders, the people who keep everything running and make sure everyone has a nice and friendly time!
+					The system status of the main TCDG server, runni
 				</h2>
 			</div>
 			<br>
 
 			<div class="columns">
 				<div class="column">
-					<div id="tcdg_leaders_one" class="box">
-
+					<div class="box">
+					<h2 class="subtitle">
+                    	<b>System Load</b>
+               		 </h2>
+                     <iframe src="https://app.datadoghq.com/graph/embed?token=fb1feb9c883862d7beb2f1318d9802907c13c637adcb846842ca55ce4f91e1e6&height=300&width=500&legend=true" width="500" height="300" frameborder="0" scrolling="no"></iframe>
 					</div>
+                    
+                    <div class="box">
+						<h2 class="subtitle">
+                    	<b>RAM Usage</b>
+               		   </h2>
+                     <iframe src="https://app.datadoghq.com/graph/embed?token=95e1eda328c2c10309c862ba5220a49a730155b5d1124745c6591dd655517c91&height=300&width=500&legend=true" width="500" height="300" frameborder="0" scrolling="no"></iframe>
+					</div>
+                    
 				</div>
+                
 				<div class="column">
-					<div id="tcdg_leaders_two" class="box">
-
+					<div class="box">
+						<h2 class="subtitle">
+                    	<b>CPU Usage</b>
+               		   </h2>
+                     <iframe src="https://app.datadoghq.com/graph/embed?token=4ff5f3e42cd3b511c8af573dc2a9637778f13650efe03771befacef58e02e3a0&height=300&width=500&legend=true" width="500" height="300" frameborder="0" scrolling="no"></iframe>
+					</div>
+                    
+                    <div class="box">
+						<h2 class="subtitle">
+                    	<b>Server Connections</b>
+               		   </h2>
+                     <iframe src="https://app.datadoghq.com/graph/embed?token=e3f98035cb944b327e625e8d43bbbb1dfcb4c0cc1e50a6181f2f2e7c2b6e2eba&height=300&width=500&legend=true" width="500" height="300" frameborder="0" scrolling="no"></iframe>
 					</div>
 				</div>
+                
 			</div>
 		</div>
 	</section>
-
-	<section class="section">
+    
+    <section class="section" style="display: none">
 		<div class="container has-text-centered">
 			<div class="header">
 				<h1 class="title">
-					<strong>TCDG Members</strong>
+					<strong>Application Status's</strong>
 				</h1>
 				<h2 class="subtitle">
-					These are the TCDG members! The users who develop every awesome project we host!
+					The status of all our the servers that we run.
 				</h2>
 			</div>
 			<br>
+
 			<div class="columns">
 				<div class="column">
-					<div id="members_parent_one" class="box">
+					<div id="tcdg_application_status_one" class="box">
 
 					</div>
 				</div>
 				<div class="column">
-					<div id="members_parent_two" class="box">
+					<div id="tcdg_application_status_two" class="box">
 
 					</div>
 				</div>
 			</div>
 		</div>
-
 	</section>
-
-	<script src="/js/users-deploy.js"></script>
-
-	<footer class="footer">
+    
+    
+    <footer class="footer">
 		<div class="container">
 			<div class="content has-text-centered">
 				<p>
-					<small>Note this is dynamicly generated using the Github API, only users who have their information shown publicly will have their names displayed</small><br><strong>CollectiveDev.com</strong>					by <a href="http://inventor02.me">inventor02</a> and <a href="https://www.xelitexirish.com">XeliteXirish</a>. Source
+                	<small>We use an awesome service called <a href="https://datara.in/tcdgstatus">DataDog</a>.  So be sure to check their official website if these graphs seem wrong.</small><br>
+					<strong>CollectiveDev.com</strong> by <a href="http://inventor02.me">inventor02</a> and <a href="https://www.xelitexirish.com">XeliteXirish</a>. Source
 					code licensed under a BSD-style license, available <a href="https://github.com/tcdg/collectivedev.com">in the repository</a>.
 					Copyright &copy; The Collective Developer Group, 2016. All rights reserved.
 				</p>
 			</div>
 		</div>
 	</footer>
-
 </body>
-
 </html>
