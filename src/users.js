@@ -68,12 +68,12 @@
         let membersParentTwo = document.getElementById("members_parent_two");
 
         const members = getGithubMembers((objGithubUsers) => {
-
-          document.getElementById("tcdg_leaders_one").innerHTML = "";
-          document.getElementById("tcdg_leaders_two").innerHTML = "";
-          document.getElementById("members_parent_one").innerHTML = "";
-          document.getElementById("members_parent_two").innerHTML = "";
+          document.getElementById("tcdg_leaders_one").removeChild(document.getElementById("loader1"));
+          document.getElementById("tcdg_leaders_two").removeChild(document.getElementById("loader2"));
+          document.getElementById("members_parent_one").removeChild(document.getElementById("loader3"));
+          document.getElementById("members_parent_two").removeChild(document.getElementById("loader4"));
             console.log(objGithubUsers);
+            setTimeout(function(){
               for (let userIndex in objGithubUsers) {
                   const user = objGithubUsers[userIndex];
 
@@ -86,6 +86,7 @@
                   if (leaders.indexOf(user.login) > -1)
                       ((tcdgLeadersParentOne.childNodes.length <= leaders.length / 2) ? tcdgLeadersParentOne : tcdgLeadersParentTwo).appendChild(membersNode);
               }
+            }, 100);
         });
     }
     listUsersWithData();
