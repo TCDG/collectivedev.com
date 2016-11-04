@@ -81,20 +81,22 @@
         const members = getGithubMembers((objGithubUsers) => {
           let leadersList = 1;
             hideLoaders();
-            for (let userIndex in objGithubUsers) {
-                const user = objGithubUsers[userIndex];
+            setTimeout(function () {
+                for (let userIndex in objGithubUsers) {
+                    const user = objGithubUsers[userIndex];
 
-                const membersParent = document.createElement('div');
-                membersParent.innerHTML = compileMemberHTML(user);
-                const membersNode = membersParent.firstElementChild;
+                    const membersParent = document.createElement('div');
+                    membersParent.innerHTML = compileMemberHTML(user);
+                    const membersNode = membersParent.firstElementChild;
 
-                ((userIndex < (objGithubUsers.length / 2)) ? membersParentOne : membersParentTwo).appendChild(membersNode)
+                    ((userIndex < (objGithubUsers.length / 2)) ? membersParentOne : membersParentTwo).appendChild(membersNode)
 
-                if (leaders.indexOf(user.login) > -1){
-                    ((leadersList <= leaders.length / 2) ? tcdgLeadersParentOne : tcdgLeadersParentTwo).appendChild(membersNode);
-                    leadersList++;
+                    if (leaders.indexOf(user.login) > -1){
+                        ((leadersList <= leaders.length / 2) ? tcdgLeadersParentOne : tcdgLeadersParentTwo).appendChild(membersNode);
+                        leadersList++;
+                    }
                 }
-            }
+            }, 100);
         });
     }
     listUsersWithData();
