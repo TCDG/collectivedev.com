@@ -7,7 +7,7 @@
             if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
                 cb(xmlHttp.responseText);
         }
-        xmlHttp.open("GET", url, true); // true for asynchronous
+        xmlHttp.open("GET", url, true); // true for asynchronous 
         xmlHttp.send(null);
     }
 
@@ -68,11 +68,6 @@
         let membersParentTwo = document.getElementById("members_parent_two");
 
         const members = getGithubMembers((objGithubUsers) => {
-
-          document.getElementById("tcdg_leaders_one").innerHTML = "";
-          document.getElementById("tcdg_leaders_two").innerHTML = "";
-          document.getElementById("members_parent_one").innerHTML = "";
-          document.getElementById("members_parent_two").innerHTML = "";
             console.log(objGithubUsers);
             for (let userIndex in objGithubUsers) {
                 const user = objGithubUsers[userIndex];
