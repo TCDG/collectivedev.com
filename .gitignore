@@ -52,3 +52,8 @@ $RECYCLE.BIN/
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
+
+.swp
+node-modules
+node_modules/
+node_modules
