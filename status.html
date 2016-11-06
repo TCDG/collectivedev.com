@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Status &bull; The Collective</title>
+	<title>Status &bull; The Collective Development Group</title>
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -80,12 +80,41 @@
 			</nav>
 		</div>
 	</section>
+    
+    <section class="section">
+    	<div class="container has-text-centered">
+       		<div class="header">
+       			<h1 class="title"><strong>Announcements</strong></h1>
+                <h2 class="subtitle">Quick updates on TCDG! Check the <a href="https://forums.collectivedev.com">Forums</a> for more detailed updates!</h2>
+                <br>
+       		</div>
+            
+            <div class="box">
+            	<h6 class="title is-6"><i>Coming real soon</i></h6>
+            </div>
+    	</div>
+        
+        <script>
+		function loadAnnouncements(){
+			var xhrAnnouncements = new XMLHttpRequest();
+			xhrAnnouncements.open("GET", "https://collectivedev.com/data/tcdgAnnouncements.json", false);
+			xhrAnnouncements.send();
+			objAnnouncements = JSON.parse(xhrAnnouncements.responseText);
+			
+			var title = objAnnouncements.title;
+			var summery = objAnnouncements.summery;
+			var author = objAnnouncements.author;
+			var text = objAnnouncements.text;
+			var date = objAnnouncements.date;
+		}
+		loadAnnouncements();
+		</script>
+    </section>
 
     <section class="section">
 		<div class="container has-text-centered">
 			<div class="header">
-				<h1 class="title">
-				<strong>TCDG Server Status</strong> </h1>
+				<h1 class="title"><strong>TCDG Server Status</strong> </h1>
 				<h2 class="subtitle">Having trouble with one of our services/servers? Find out what happened!</h2>
 		  </div>
 
@@ -99,12 +128,8 @@
     <section class="section">
 		<div class="container has-text-centered">
 			<div class="header">
-				<h1 class="title">
-					<strong>Server Status</strong>
-				</h1>
-				<h2 class="subtitle">
-					The system status of the central TCDG VPS
-				</h2>
+				<h1 class="title"><strong>Server Status</strong></h1>
+				<h2 class="subtitle">The system status of the central TCDG VPS</h2>
 			</div>
 			<br>
 
