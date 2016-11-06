@@ -92,7 +92,7 @@
         <script>
 		function loadAnnouncements(){
 			var xhrAnnouncements = new XMLHttpRequest();
-			xhrAnnouncements.open("GET", "/data/tcdgAnnouncements.json", false);
+			xhrAnnouncements.open("GET", "https://colectivedev.com/data/tcdgAnnouncements.json", false);
 			xhrAnnouncements.send();
 			objAnnouncements = JSON.parse(xhrAnnouncements.responseText);
 			
