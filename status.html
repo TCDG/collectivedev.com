@@ -86,13 +86,18 @@
        		<div class="header">
        			<h1 class="title"><strong>Announcements</strong></h1>
                 <h2 class="subtitle">Quick updates on TCDG! Check the <a href="https://forums.collectivedev.com">Forums</a> for more detailed updates!</h2>
+                <br>
        		</div>
+            
+            <div class="box">
+            	<h6 class="title is-6"><i>Coming real soon</i></h6>
+            </div>
     	</div>
         
         <script>
 		function loadAnnouncements(){
 			var xhrAnnouncements = new XMLHttpRequest();
-			xhrAnnouncements.open("GET", "https://colectivedev.com/data/tcdgAnnouncements.json", false);
+			xhrAnnouncements.open("GET", "https://collectivedev.com/data/tcdgAnnouncements.json", false);
 			xhrAnnouncements.send();
 			objAnnouncements = JSON.parse(xhrAnnouncements.responseText);
 			
@@ -101,8 +106,6 @@
 			var author = objAnnouncements.author;
 			var text = objAnnouncements.text;
 			var date = objAnnouncements.date;
-			
-			alert(title);
 		}
 		loadAnnouncements();
 		</script>
