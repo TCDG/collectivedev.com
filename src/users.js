@@ -11,7 +11,7 @@
         xmlHttp.send(null);
     }
 
-    const getGithubMembers = (cb) => runGetRequest(`//devjoe.me/TCDG/members.php`, (res) => cb(JSON.parse(res)));
+    const getGithubMembers = (cb) => runGetRequest(`./members.php`, (res) => cb(JSON.parse(res)));
 
     const leaders = ["XeliteXirish", "GilbertGobbels", "Kelwing", "floogulinc", "Newtsrock", "JoeTheHuman"]; // Get this from the API later on!
 
